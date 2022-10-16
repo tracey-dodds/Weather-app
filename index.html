@@ -12,46 +12,47 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Weather Forecast</title>
   </head>
+  <body>
     <div class="container">
-      <div class="whole app">
-      <h1>Weather Forecast</h1>
-      <h2>City name</h2>
-      <ul>
-        <li>
-          Date & time
-        </li>
-        <li>
-          Weather description
-        </li>
-      </ul>
-      </div>
-      <div class="row">
-            <div class="col-6">
-        ☀️ 12°C | °F
-      </div>
-        <div class="col-6">
+      <div class="whole-app">
+        <div class="overview">
+          <h1>Weather Forecast</h1>
+          <h2 id="city"></h2>
           <ul>
-            <li>
-              Precipitation
-            </li>
-            <li>
-              Humidity
-            </li>
-            <li>
-              Wind
-            </li>
+            <li>Date & time</li>
+            <li id="weather-description"></li>
           </ul>
-       </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="d-flex weather-temperature">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                alt="clear"
+              />
+              <div>
+                <strong id="temperature"> </strong
+                ><span class="units">°C | °F </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <ul>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span>km/h</li>
+            </ul>
+          </div>
+        </div>
+        <small>
+          <a href="https://github.com/tracey-dodds/Weather-app" target="_blank"
+            >Github</a
+          >, Tracey Dodds
+        </small>
       </div>
-    
-    <small>
-      <a href="https://github.com/tracey-dodds/Weather-app" target="_blank
-      ">Github</a>, Tracey Dodds
-    </small>
     </div>
-    <script src="src/javaScript.app"></script>
+    <script src="src/javaScript.js"></script>
   </body>
 </html>
