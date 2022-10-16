@@ -4,9 +4,9 @@ function formatDate(timestamp) {
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
+  let minute = date.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
   }
   let days = [
     "Sunday",
@@ -18,7 +18,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours} ${minutes}`;
+  return `${day} ${hours}:${minute}`;
 }
 
 function displayTemperature(response) {
@@ -41,9 +41,17 @@ function displayTemperature(response) {
 
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey = "708ef12b3e0617a4c8a28e31ae3f4341";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=metric`;
+let city = "paris";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
