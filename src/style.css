@@ -48,6 +48,7 @@ li {
   text-align: center;
 }
 
-href {
-  padding-top: 20px;
+.git {
+  margin: 0 auto;
+  padding-left: 300px;
 }
